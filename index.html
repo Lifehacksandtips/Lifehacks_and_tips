@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лайфхаки и советы | Главная</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Лайфхаки и советы</h1>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="active">Главная</a></li>
+                    <li><a href="articles.html">Статьи</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <h2>Практические советы для повседневной жизни</h2>
+                <p>Откройте для себя полезные лайфхаки, которые сделают вашу жизнь проще!</p>
+                <button id="cta-button" class="btn">Узнать больше</button>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="feature-card">
+                    <h3>Дом и быт</h3>
+                    <p>Советы по уборке, организации пространства и ремонту.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Здоровье</h3>
+                    <p>Полезные привычки и простые рецепты для здоровья.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Финансы</h3>
+                    <p>Как экономить и разумно тратить деньги.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="time-section">
+            <div class="container">
+                <h2>Текущее время</h2>
+                <p id="current-time">Загрузка времени...</p>
+                <button id="refresh-time" class="btn">Обновить время</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contact">
+        <div class="container">
+            <p>© 2023 Лайфхаки и советы</p>
+            <p>Контакты: info@lifehacks.ru</p>
+            <p id="visit-counter">Посетителей сегодня: 0</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
