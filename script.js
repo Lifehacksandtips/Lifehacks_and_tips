@@ -144,3 +144,37 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('top-hack-desc').textContent = topHack.description;
     }
 });
+// Функция для обработки формы обратной связи
+function setupContactForm() {
+    const form = document.getElementById('feedback-form');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Получаем данные формы
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                subject: formData.get('subject'),
+                message: formData.get('message')
+            };
+            
+            // Здесь можно добавить AJAX-запрос для отправки данных
+            console.log('Форма отправлена:', data);
+            
+            // Показываем сообщение об успехе
+            alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+            form.reset();
+        });
+    }
+}
+
+// Функция для фильтрации статей
+function filterArticles() {
+    const filter = document.getElementById('category-filter');
+    if (filter) {
+        filter.addEventListener('change', function() {
+            const category = this.value;
+            const articles = document.querySelectorAll('.article-card');
+            
