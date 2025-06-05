@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лайфхаки и советы | Статьи</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Лайфхаки и советы</h1>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="articles.html" class="active">Статьи</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="articles">
+            <div class="container">
+                <h2>Популярные статьи</h2>
+                
+                <article class="article-card" data-category="home">
+                    <h3>10 способов быстро убраться в квартире</h3>
+                    <p>Эффективные методы уборки, которые сэкономят ваше время.</p>
+                    <button class="btn read-more">Читать далее</button>
+                </article>
+                
+                <article class="article-card" data-category="health">
+                    <h3>Утренние ритуалы для бодрости</h3>
+                    <p>Как начать день с энергией и хорошим настроением.</p>
+                    <button class="btn read-more">Читать далее</button>
+                </article>
+                
+                <article class="article-card" data-category="finance">
+                    <h3>Как экономить на продуктах без ущерба качеству</h3>
+                    <p>Проверенные стратегии покупок для экономных хозяев.</p>
+                    <button class="btn read-more">Читать далее</button>
+                </article>
+
+                <div class="filter-controls">
+                    <h3>Фильтр статей:</h3>
+                    <select id="category-filter">
+                        <option value="all">Все категории</option>
+                        <option value="home">Дом и быт</option>
+                        <option value="health">Здоровье</option>
+                        <option value="finance">Финансы</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contact">
+        <div class="container">
+            <p>© 2023 Лайфхаки и советы</p>
+            <p>Контакты: info@lifehacks.ru</p>
+            <p id="visit-counter">Посетителей сегодня: 0</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
