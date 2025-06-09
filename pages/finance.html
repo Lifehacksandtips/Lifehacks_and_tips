@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Финансы | LifeProTips</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="animated-bg"></div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <h1>LifeProTips</h1>
+            </div>
+            <nav class="nav">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <ul class="nav-list" id="navList">
+                    <li><a href="../index.html">Главная</a></li>
+                    <li><a href="productivity.html">Продуктивность</a></li>
+                    <li><a href="finance.html" class="active">Финансы</a></li>
+                    <li><a href="health.html">Здоровье</a></li>
+                    <li><a href="creativity.html">Креатив</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <section class="page-header">
+                <h2><i class="fas fa-coins"></i> Финансовые лайфхаки</h2>
+                <p>Умные советы по управлению деньгами и экономии</p>
+            </section>
+
+            <section class="tips-grid">
+                <article class="tip-card">
+                    <h3>Правило 50/30/20</h3>
+                    <p>50% дохода - на necessities, 30% - на wants, 20% - на savings/debt. Простое правило бюджетирования.</p>
+                    <span class="tip-rating">★ ★ ★ ★ ★</span>
+                </article>
+                
+                <article class="tip-card">
+                    <h3>Автоматические накопления</h3>
+                    <p>Настройте автоматический перевод 10% от зарплаты на сберегательный счет в день получения.</p>
+                    <span class="tip-rating">★ ★ ★ ★ ☆</span>
+                </article>
+                
+                <article class="tip-card">
+                    <h3>24-часовое правило</h3>
+                    <p>Перед крупной покупкой ждите 24 часа. Это уменьшает импульсные траты.</p>
+                    <span class="tip-rating">★ ★ ★ ★ ☆</span>
+                </article>
+                
+                <article class="tip-card">
+                    <h3>Кэшбэк-сервисы</h3>
+                    <p>Используйте кэшбэк-сервисы и карты - это возврат части потраченных денег.</p>
+                    <span class="tip-rating">★ ★ ★ ☆ ☆</span>
+                </article>
+
+                <article class="tip-card">
+                    <h3>Правило 72 часов</h3>
+                    <p>Если видите вещь, которую хотите купить, подождите 72 часа. Часто желание проходит.</p>
+                    <span class="tip-rating">★ ★ ★ ★ ☆</span>
+                </article>
+
+                <article class="tip-card">
+                    <h3>Цена в часах работы</h3>
+                    <p>Перед покупкой считайте, сколько часов вам нужно работать для этой вещи. Стоит ли оно того?</p>
+                    <span class="tip-rating">★ ★ ★ ★ ★</span>
+                </article>
+            </section>
+
+            <section class="finance-calculator">
+                <h3><i class="fas fa-calculator"></i> Калькулятор сложных процентов</h3>
+                <div class="calculator-form">
+                    <label for="initialAmount">Начальная сумма:</label>
+                    <input type="number" id="initialAmount" placeholder="10000">
+                    
+                    <label for="monthlyDeposit">Ежемесячное пополнение:</label>
+                    <input type="number" id="monthlyDeposit" placeholder="5000">
+                    
+                    <label for="interestRate">Годовая процентная ставка:</label>
+                    <input type="number" id="interestRate" placeholder="7" step="0.1">
+                    
+                    <label for="years">Срок (лет):</label>
+                    <input type="number" id="years" placeholder="5">
+                    
+                    <button id="calculateBtn">Рассчитать</button>
+                    
+                    <div class="calculator-result" id="calculatorResult"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-vk"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>© 2023 LifeProTips. Все права защищены.</p>
+            <div class="footer-info">
+                <p id="currentDateTime">Дата и время загрузки страницы</p>
+                <p>Пользователей онлайн: <span id="onlineUsers">0</span></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../script.js"></script>
+    <script>
+        // Калькулятор сложных процентов
+        document.getElementById('calculateBtn').addEventListener('click', function() {
+            const initialAmount = parseFloat(document.getElementById('initialAmount').value) || 0;
+            const monthlyDeposit = parseFloat(document.getElementById('monthlyDeposit').value) || 0;
+            const interestRate = parseFloat(document.getElementById('interestRate').value) || 0;
+            const years = parseInt(document.getElementById('years').value) || 0;
+            
+            const monthlyRate = interestRate / 100 / 12;
+            const months = years * 12;
+            
+            let total = initialAmount;
+            
+            for (let i = 0; i < months; i++) {
+                total = (total + monthlyDeposit) * (1 + monthlyRate);
+            }
+            
+            const totalInvested = initialAmount + (monthlyDeposit * months);
+            const interestEarned = total - totalInvested;
+            
+            document.getElementById('calculatorResult').innerHTML = `
+                <p>Итоговая сумма: <strong>${total.toFixed(2)} ₽</strong></p>
+                <p>Всего вложено: ${totalInvested.toFixed(2)} ₽</p>
+                <p>Проценты: ${interestEarned.toFixed(2)} ₽</p>
+            `;
+        });
+    </script>
+</body>
+</html>
