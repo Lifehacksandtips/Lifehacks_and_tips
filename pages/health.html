@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Здоровье | LifeProTips</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="animated-bg"></div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <h1>LifeProTips</h1>
+            </div>
+            <nav class="nav">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <ul class="nav-list" id="navList">
+                    <li><a href="../index.html">Главная</a></li>
+                    <li><a href="productivity.html">Продуктивность</a></li>
+                    <li><a href="finance.html">Финансы</a></li>
+                    <li><a href="health.html" class="active">Здоровье</a></li>
+                    <li><a href="creativity.html">Креатив</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <section class="page-header">
+                <h2><i class="fas fa-heartbeat"></i> Лайфхаки для здоровья</h2>
+                <p>Простые советы для улучшения самочувствия и качества жизни</p>
+            </section>
+
+            <section class="tips-grid">
+                <article class="tip-card">
+                    <h3>Утренний стакан воды</h3>
+                    <p>Выпивайте стакан теплой воды после пробуждения - это запускает метаболизм.</p>
+                    <span class="tip-rating">★ ★ ★ ★ ★</span>
+                </article>
+                
+                <article class="tip-card">
+                    <h3>Правило 20-20-20</h3>
+                    <p>Каждые 20 минут смотрите 20 секунд на объект в 20 футах (6м) - снимете усталость глаз.</p>
+                    <span class="tip-rating">★ ★ ★ ★ ☆</span>
+                </article>
+                
+                <article class="tip-card">
+                    <h3>Осанка за компьютером</h3>
+                    <p>Уши должны быть на уровне плеч, а экран - на уровне глаз. Это уменьшит нагрузку на шею.</p>
+                    <span class="tip-rating">★ ★ ★ ★ ☆</span>
+                </article>
+                
+                <article class="tip-card">
+                    <h3>Глубокое дыхание</h3>
+                    <p>При стрессе делайте 4-7-8: вдох 4 сек, задержка 7 сек, выдох 8 сек. Повторите 4 раза.</p>
+                    <span class="tip-rating">★ ★ ★ ★ ★</span>
+                </article>
+
+                <article class="tip-card">
+                    <h3>Сон по циклам</h3>
+                    <p>Спите кратно 1.5 часам (3, 4.5, 6, 7.5 ч) - проснетесь в фазе легкого сна.</p>
+                    <span class="tip-rating">★ ★ ★ ☆ ☆</span>
+                </article>
+
+                <article class="tip-card">
+                    <h3>Ходьба для креатива</h3>
+                    <p>20-минутная прогулка увеличивает креативность на 60% по исследованиям.</p>
+                    <span class="tip-rating">★ ★ ★ ★ ☆</span>
+                </article>
+            </section>
+
+            <section class="health-tracker">
+                <h3><i class="fas fa-chart-line"></i> Трекер полезных привычек</h3>
+                <div class="tracker-grid" id="habitTracker">
+                    <!-- Будет заполняться JavaScript -->
+                </div>
+                <button id="resetHabitsBtn">Сбросить прогресс</button>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-vk"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>© 2023 LifeProTips. Все права защищены.</p>
+            <div class="footer-info">
+                <p id="currentDateTime">Дата и время загрузки страницы</p>
+                <p>Пользователей онлайн: <span id="onlineUsers">0</span></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../script.js"></script>
+    <script>
+        // Трекер привычек
+        const habits = [
+            { name: "Пить воду утром", days: [false, false, false, false, false, false, false] },
+            { name: "20 мин. активности", days: [false, false, false, false, false, false, false] },
+            { name: "Медитация 5 мин", days: [false, false, false, false, false, false, false] },
+            { name: "5 порций овощей", days: [false, false, false, false, false, false, false] },
+            { name: "7-8 часов сна", days: [false, false, false, false, false, false, false] }
+        ];
+
+        const days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+
+        function renderHabitTracker() {
+            const tracker = document.getElementById('habitTracker');
+            tracker.innerHTML = '';
+
+            // Заголовки дней
+            let headerRow = document.createElement('div');
+            headerRow.className = 'tracker-header';
+            headerRow.innerHTML = '<div class="tracker-habit-name">Привычка</div>';
+            
+            days.forEach(day => {
+                headerRow.innerHTML += `<div class="tracker-day">${day}</div>`;
+            });
+            
+            tracker.appendChild(headerRow);
+
+            // Строки привычек
+            habits.forEach((habit, index) => {
+                let habitRow = document.createElement('div');
+                habitRow.className = 'tracker-row';
+                habitRow.innerHTML = `<div class="tracker-habit-name">${habit.name}</div>`;
+                
+                habit.days.forEach((done, dayIndex) => {
+                    habitRow.innerHTML += `
+                        <div class="tracker-day">
+                            <input type="checkbox" id="habit-${index}-day-${dayIndex}" 
+                                   ${done ? 'checked' : ''}
+                                   data-habit="${index}" data-day="${dayIndex}">
+                        </div>
+                    `;
+                });
+                
+                tracker.appendChild(habitRow);
+            });
+
+            // Обработчики чекбоксов
+            document.querySelectorAll('#habitTracker input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const habitIndex = parseInt(this.getAttribute('data-habit'));
+                    const dayIndex = parseInt(this.getAttribute('data-day'));
+                    habits[habitIndex].days[dayIndex] = this.checked;
+                    saveHabits();
+                });
+            });
+        }
+
+        function saveHabits() {
+            localStorage.setItem('healthHabits', JSON.stringify(habits));
+        }
+
+        function loadHabits() {
+            const savedHabits = localStorage.getItem('healthHabits');
+            if (savedHabits) {
+                const parsed = JSON.parse(savedHabits);
+                parsed.forEach((habit, index) => {
+                    if (habits[index]) {
+                        habits[index].days = habit.days;
+                    }
+                });
+            }
+        }
+
+        document.getElementById('resetHabitsBtn').addEventListener('click', function() {
+            if (confirm('Сбросить весь прогресс по привычкам?')) {
+                habits.forEach(habit => {
+                    habit.days = [false, false, false, false, false, false, false];
+                });
+                saveHabits();
+                renderHabitTracker();
+            }
+        });
+
+        // Инициализация
+        loadHabits();
+        renderHabitTracker();
+    </script>
+</body>
+</html>
