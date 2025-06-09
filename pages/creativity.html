@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Креатив | LifeProTips</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="animated-bg"></div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <h1>LifeProTips</h1>
+            </div>
+            <nav class="nav">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <ul class="nav-list" id="navList">
+                    <li><a href="../index.html">Главная</a></li>
+                    <li><a href="productivity.html">Продуктивность</a></li>
+                    <li><a href="finance.html">Финансы</a></li>
+                    <li><a href="health.html">Здоровье</a></li>
+                    <li><a href="creativity.html" class="active">Креатив</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <section class="page-header">
+                <h2><i class="fas fa-lightbulb"></i> Креативные лайфхаки</h2>
+                <p>Советы для развития творческого мышления и генерации идей</p>
+            </section>
+
+            <section class="tips-grid">
+                <article class="tip-card">
+                    <h3>Метод 100 идей</h3>
+                    <p>Запишите 100 идей по теме - первые 20-30 будут очевидны, дальше начнется настоящее творчество.</p>
+                    <span class="tip-rating">★ ★ ★ ★ ☆</span>
+                </article>
+                
+                <article class="tip-card">
+                    <h3>Шесть шляп</h3>
+                    <p>Анализируйте идею с 6 позиций: факты, эмоции, критика, оптимизм, креатив, управление.</p>
+                    <span class="tip-rating">★ ★ ★ ☆ ☆</span>
+                </article>
+                
+                <article class="tip-card">
+                    <h3>Случайный стимул</h3>
+                    <p>Откройте случайную статью в Википедии и найдите связь с вашей задачей.</p>
+                    <span class="tip-rating">★ ★ ★ ★ ★</span>
+                </article>
+                
+                <article class="tip-card">
+                    <h3>Ограничения</h3>
+                    <p>Искусственно ограничьте ресурсы (время, материалы) - это стимулирует креативность.</p>
+                    <span class="tip-rating">★ ★ ★ ★ ☆</span>
+                </article>
+
+                <article class="tip-card">
+                    <h3>Дневник идей</h3>
+                    <p>Носите с собой блокнот и записывайте все интересные мысли и наблюдения.</p>
+                    <span class="tip-rating">★ ★ ★ ★ ★</span>
+                </article>
+
+                <article class="tip-card">
+                    <h3>Метод SCAMPER</h3>
+                    <p>Задайте вопросы: Заменить? Комбинировать? Адаптировать? Модифицировать? Применить иначе? Убрать? Перевернуть?</p>
+                    <span class="tip-rating">★ ★ ★ ☆ ☆</span>
+                </article>
+            </section>
+
+            <section class="creativity-tools">
+                <h3><i class="fas fa-magic"></i> Генератор случайных идей</h3>
+                <div class="idea-generator">
+                    <div class="idea-inputs">
+                        <label for="ideaTheme">Тема:</label>
+                        <input type="text" id="ideaTheme" placeholder="Например: приложение, мероприятие, продукт">
+                        
+                        <label for="ideaConstraint">Ограничение:</label>
+                        <select id="ideaConstraint">
+                            <option value="time">Ограничение по времени</option>
+                            <option value="budget">Минимальный бюджет</option>
+                            <option value="technology">Использовать определенную технологию</option>
+                            <option value="audience">Для конкретной аудитории</option>
+                        </select>
+                    </div>
+                    
+                    <button id="generateIdeaBtn">Сгенерировать идею</button>
+                    
+                    <div class="idea-result" id="ideaResult"></div>
+                </div>
+
+                <div class="random-words">
+                    <h4>Случайные слова для вдохновения:</h4>
+                    <div id="randomWords"></div>
+                    <button id="refreshWordsBtn">Новые слова</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-vk"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>© 2023 LifeProTips. Все права защищены.</p>
+            <div class="footer-info">
+                <p id="currentDateTime">Дата и время загрузки страницы</p>
+                <p>Пользователей онлайн: <span id="onlineUsers">0</span></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../script.js"></script>
+    <script>
+        // Генератор случайных идей
+        const ideaTemplates = [
+            "Создайте {theme} для {audience}, которое решает проблему {problem}",
+            "Разработайте {theme}, которое сочетает {randomWord1} и {randomWord2}",
+            "Придумайте {theme} с ограничением {constraint}",
+            "Как можно использовать {randomWord1} в сфере {theme}?",
+            "{theme}, но с подходом {randomWord1}"
+        ];
+
+        const problems = [
+            "экономии времени", "упрощения сложных задач", "улучшения коммуникации", 
+            "повышения эффективности", "снижения затрат", "увеличения вовлеченности"
+        ];
+
+        const audiences = [
+            "студентов", "родителей", "фрилансеров", "пенсионеров", 
+            "учителей", "путешественников", "спортсменов"
+        ];
+
+        const randomWords = [
+            "искусственный интеллект", "геймификация", "блокчейн", "AR", "VR", 
+            "биометрия", "облако", "подписка", "сообщество", "персонализация",
+            "минимализм", "рециклинг", "бионика", "киберпанк", "ретро"
+        ];
+
+        function getRandomElement(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
+
+        function generateIdea() {
+            const theme = document.getElementById('ideaTheme').value || "продукт";
+            const constraint = document.getElementById('ideaConstraint').value;
+            
+            let template = getRandomElement(ideaTemplates);
+            let result = template
+                .replace('{theme}', theme)
+                .replace('{constraint}', constraint)
+                .replace('{problem}', getRandomElement(problems))
+                .replace('{audience}', getRandomElement(audiences))
+                .replace('{randomWord1}', getRandomElement(randomWords))
+                .replace('{randomWord2}', getRandomElement(randomWords));
+            
+            document.getElementById('ideaResult').innerHTML = `
+                <div class="idea-box">
+                    <h4>Ваша креативная идея:</h4>
+                    <p>"${result}"</p>
+                </div>
+            `;
+        }
+
+        function refreshRandomWords() {
+            const wordsContainer = document.getElementById('randomWords');
+            wordsContainer.innerHTML = '';
+            
+            for (let i = 0; i < 5; i++) {
+                const word = getRandomElement(randomWords);
+                wordsContainer.innerHTML += `<span class="word-bubble">${word}</span>`;
+            }
+        }
+
+        document.getElementById('generateIdeaBtn').addEventListener('click', generateIdea);
+        document.getElementById('refreshWordsBtn').addEventListener('click', refreshRandomWords);
+
+        // Инициализация
+        refreshRandomWords();
+    </script>
+</body>
+</html>
