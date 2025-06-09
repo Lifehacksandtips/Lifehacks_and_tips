@@ -327,3 +327,354 @@ body {
         font-size: 1.5rem;
     }
 }
+
+/* Стили для страниц */
+
+/* Заголовок страницы */
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-header h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.page-header h2 i {
+    margin-right: 15px;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Сетка советов */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.tip-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.tip-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.tip-card p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.tip-rating {
+    color: var(--warning-color);
+    font-size: 0.9rem;
+    display: block;
+}
+
+/* Финансовый калькулятор */
+.finance-calculator {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.finance-calculator h3 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.finance-calculator h3 i {
+    margin-right: 10px;
+}
+
+.calculator-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.calculator-form label {
+    font-weight: 600;
+    color: #555;
+}
+
+.calculator-form input {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.calculator-form button {
+    grid-column: span 2;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.calculator-form button:hover {
+    background-color: var(--accent-color);
+}
+
+.calculator-result {
+    grid-column: span 2;
+    padding: 20px;
+    background-color: var(--light-color);
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.calculator-result p {
+    margin-bottom: 10px;
+}
+
+.calculator-result strong {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* Трекер привычек */
+.health-tracker {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.health-tracker h3 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.health-tracker h3 i {
+    margin-right: 10px;
+}
+
+.tracker-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tracker-header, .tracker-row {
+    display: grid;
+    grid-template-columns: 2fr repeat(7, 1fr);
+    gap: 5px;
+    align-items: center;
+}
+
+.tracker-header {
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.tracker-row {
+    padding: 10px 0;
+}
+
+.tracker-habit-name {
+    font-weight: 500;
+}
+
+.tracker-day {
+    text-align: center;
+}
+
+.tracker-day input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+#resetHabitsBtn {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: var(--danger-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#resetHabitsBtn:hover {
+    background-color: #c0392b;
+}
+
+/* Генератор идей */
+.creativity-tools {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.creativity-tools h3 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.creativity-tools h3 i {
+    margin-right: 10px;
+}
+
+.idea-generator {
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.idea-inputs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.idea-inputs label {
+    font-weight: 600;
+    color: #555;
+}
+
+.idea-inputs input, .idea-inputs select {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+#generateIdeaBtn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+#generateIdeaBtn:hover {
+    background-color: var(--accent-color);
+}
+
+.idea-result {
+    padding: 20px;
+    background-color: var(--light-color);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.idea-box h4 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.random-words {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--light-color);
+    border-radius: 8px;
+}
+
+.random-words h4 {
+    margin-bottom: 15px;
+    color: var(--dark-color);
+}
+
+#randomWords {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.word-bubble {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+#refreshWordsBtn {
+    padding: 8px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#refreshWordsBtn:hover {
+    background-color: var(--accent-color);
+}
+
+/* Адаптивность для дополнительных страниц */
+@media (max-width: 768px) {
+    .calculator-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .calculator-form button, .calculator-result {
+        grid-column: span 1;
+    }
+    
+    .tracker-header, .tracker-row {
+        grid-template-columns: 1.5fr repeat(7, 1fr);
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+}
