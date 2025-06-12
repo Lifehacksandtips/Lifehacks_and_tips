@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeProTips | Лайфхаки для жизни</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="animated-bg"></div>
+    
+    <!-- Главный контейнер -->
+    <div class="container">
+        <!-- Хедер -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <h1>LifeProTips</h1>
+            </div>
+            <nav class="nav">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <ul class="nav-list" id="navList">
+                    <li><a href="pages/home.html" class="active">Главная</a></li>
+                    <li><a href="pages/productivity.html">Продуктивность</a></li>
+                    <li><a href="pages/finance.html">Финансы</a></li>
+                    <li><a href="pages/health.html">Здоровье</a></li>
+                    <li><a href="pages/creativity.html">Креатив</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Основной контент -->
+        <main class="main-content">
+            <section class="hero">
+                <div class="hero-text">
+                    <h2>Лайфхаки для <span class="highlight">твоей</span> жизни</h2>
+                    <p>Практичные советы, которые сделают твой день проще и интереснее</p>
+                    <button class="cta-btn" id="exploreBtn">Исследуй сейчас</button>
+                </div>
+                <div class="hero-image">
+                    <img src="photo1.jpg" alt="Лайфхаки" class="responsive-img">
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Быстро</h3>
+                    <p>Советы, которые можно применить сразу</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Практично</h3>
+                    <p>Проверенные методы, которые работают</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Полезно</h3>
+                    <p>Инсайты, которые изменят твою жизнь</p>
+                </div>
+            </section>
+
+            <section class="daily-tip">
+                <h2>Совет дня</h2>
+                <div class="tip-container" id="dailyTip">
+                    <p>Загружаем совет...</p>
+                </div>
+                <button class="refresh-btn" id="refreshTip">⟳ Новый совет</button>
+            </section>
+        </main>
+
+        <!-- Футер -->
+        <footer class="footer">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-vk"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>© 2025 LifeProTips. </p>
+            <div class="footer-info">
+                <p id="currentDateTime">Дата и время загрузки страницы</p>
+                <p>Пользователей онлайн: <span id="onlineUsers">0</span></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
