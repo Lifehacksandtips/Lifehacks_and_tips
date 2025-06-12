@@ -120,3 +120,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Обновляем время каждую минуту
     setInterval(updateDateTime, 60000);
 });
+// Добавьте в DOMContentLoaded:
+document.querySelectorAll('.nav-list a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('navList').classList.remove('active');
+    });
+});
