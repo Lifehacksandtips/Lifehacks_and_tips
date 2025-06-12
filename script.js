@@ -126,3 +126,10 @@ document.querySelectorAll('.nav-list a').forEach(link => {
         document.getElementById('navList').classList.remove('active');
     });
 });
+// Закрывать меню при клике вне его области
+document.addEventListener('click', (e) => {
+    const navList = document.getElementById('navList');
+    if (!e.target.closest('.nav') && navList.classList.contains('active')) {
+        navList.classList.remove('active');
+    }
+});
