@@ -678,18 +678,3 @@ body {
         grid-template-columns: 1fr;
     }
 }
-/* Стили для мобильного меню */
-.mobile-menu-btn {
-    display: none; /* Скрыто по умолчанию для десктопа */
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #333;
-}
-
-.nav-list {
-    display: flex;
-    transition: all 0.3s ease;
-}
-
