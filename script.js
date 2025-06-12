@@ -120,16 +120,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Обновляем время каждую минуту
     setInterval(updateDateTime, 60000);
 });
-// Добавьте в DOMContentLoaded:
-document.querySelectorAll('.nav-list a').forEach(link => {
-    link.addEventListener('click', () => {
-        document.getElementById('navList').classList.remove('active');
-    });
-});
-// Закрывать меню при клике вне его области
-document.addEventListener('click', (e) => {
-    const navList = document.getElementById('navList');
-    if (!e.target.closest('.nav') && navList.classList.contains('active')) {
-        navList.classList.remove('active');
-    }
-});
+
