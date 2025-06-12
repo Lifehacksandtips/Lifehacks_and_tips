@@ -720,3 +720,11 @@ body {
         margin: 10px 0;
     }
 }
+.nav-list {
+    pointer-events: auto !important; /* Разрешает клики */
+    z-index: 1000; /* Убедитесь, что меню выше других элементов */
+}
+
+.nav-list a {
+    cursor: pointer; /* Курсор в виде руки */
+}
