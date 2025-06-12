@@ -130,3 +130,26 @@ document.addEventListener('DOMContentLoaded', function() {
         navList.classList.toggle('active');
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navList = document.getElementById('navList');
+    const navLinks = document.querySelectorAll('.nav-list a');
+
+    // Открытие/закрытие меню
+    mobileMenuBtn.addEventListener('click', function(e) {
+        e.stopPropagation(); // Чтобы не срабатывал document.click
+        navList.classList.toggle('active');
+    });
+
+    // Закрытие меню при клике на ссылку
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navList.classList.remove('active');
+        });
+    });
+
+    // Закрытие меню при клике вне его области
+    document.addEventListener('click', function() {
+        navList.classList.remove('active');
+    });
+});
