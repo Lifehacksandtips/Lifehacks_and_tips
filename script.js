@@ -120,3 +120,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Обновляем время каждую минуту
     setInterval(updateDateTime, 60000);
 });
+
+// Обработка мобильного меню
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navList = document.getElementById('navList');
+    
+    mobileMenuBtn.addEventListener('click', function() {
+        navList.classList.toggle('active');
+    });
+});
