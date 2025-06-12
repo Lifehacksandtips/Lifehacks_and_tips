@@ -678,3 +678,45 @@ body {
         grid-template-columns: 1fr;
     }
 }
+/* Стили для мобильного меню */
+.mobile-menu-btn {
+    display: none; /* Скрыто по умолчанию для десктопа */
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.nav-list {
+    display: flex;
+    transition: all 0.3s ease;
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block; /* Показываем кнопку на мобильных */
+    }
+    
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: white;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+    
+    .nav-list.active {
+        display: flex;
+    }
+    
+    .nav-list li {
+        margin: 10px 0;
+    }
+}
