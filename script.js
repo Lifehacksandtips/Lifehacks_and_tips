@@ -130,3 +130,8 @@ document.addEventListener('DOMContentLoaded', function() {
         navList.classList.toggle('active');
     });
 });
+document.addEventListener('click', function(e) {
+    if (!navList.contains(e.target) && e.target !== mobileMenuBtn) {
+        navList.classList.remove('active');
+    }
+});
